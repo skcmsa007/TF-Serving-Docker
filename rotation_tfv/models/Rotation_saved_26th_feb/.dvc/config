@@ -1,0 +1,4 @@
+[core]
+    remote = rotation_saved_remote
+['remote "rotation_saved_remote"']
+    url = s3://dvc-ai-model/rotation_saved_model

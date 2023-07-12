@@ -1,0 +1,4 @@
+[core]
+    remote = identification_saved_remote
+['remote "identification_saved_remote"']
+    url = s3://dvc-ai-model/identification_model_26th_May_22

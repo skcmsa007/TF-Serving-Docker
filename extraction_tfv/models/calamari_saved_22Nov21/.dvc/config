@@ -1,0 +1,4 @@
+[core]
+    remote = calamari_saved_remote
+['remote "calamari_saved_remote"']
+    url = s3://dvc-ai-model/calamari_saved_model

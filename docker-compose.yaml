@@ -1,0 +1,61 @@
+version: '3.7'  # version of compose format 
+
+services:
+  Detection_tfv:
+    environment:
+      - PYTHONUNBUFFERED=1 
+    restart: always
+    container_name: detection_tfv
+    image: detection_tfv:latest
+    build:   # path is relative to docker-compose.yml localtion
+      context: ./detection_tfv
+      args:
+        - TOKEN=${TOKEN}
+        - VAULT_IP=${VAULT_IP}
+#    volumes:
+#       - /var/log/tensorflow/batch.config:/detection_tfv/batch.config
+    expose:
+       - 8700
+       - 8063
+    ports: 
+      - 8700:8700 # host:container
+      - 8063:8063
+  Identification_tfv:
+    environment:
+      - PYTHONUNBUFFERED=1 
+    restart: always
+    container_name: identification_tfv
+    image: identification_tfv:latest
+    build:   # path is relative to docker-compose.yml localtion
+      context: ./identification_tfv
+      args:
+        - TOKEN=${TOKEN}
+        - VAULT_IP=${VAULT_IP}
+ #   volumes:
+ #      - /var/log/tensorflow/batch.config:/identification_tfv/batch.config
+    expose:
+       - 8600
+       - 8064
+    ports:
+      - 8600:8600
+      - 8064:8064  # host:container
+  Extraction_tfv:
+    environment:
+      - PYTHONUNBUFFERED=1
+      
+    restart: always
+    container_name: extraction_tfv
+    image: extraction_tfv:latest
+    build:   # path is relative to docker-compose.yml localtion
+      context: ./extraction_tfv
+      args:
+        - TOKEN=${TOKEN}
+        - VAULT_IP=${VAULT_IP}
+  #  volumes:
+  #     - /var/log/tensorflow/batch.config:/extraction_tfv/batch.config
+    expose:
+       - 8800
+       - 8068
+    ports:
+      - 8800:8800
+      - 8068:8068 # host:container

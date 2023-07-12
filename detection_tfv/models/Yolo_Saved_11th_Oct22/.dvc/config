@@ -1,0 +1,4 @@
+[core]
+    remote = yolo_remote
+['remote "yolo_remote"']
+    url = s3://dvc-ai-model/yolo_table_detection

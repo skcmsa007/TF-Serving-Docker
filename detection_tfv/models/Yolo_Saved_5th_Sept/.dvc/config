@@ -1,0 +1,4 @@
+[core]
+    remote = yolo_saved_remote
+['remote "yolo_saved_remote"']
+    url = s3://dvc-ai-model/yolo_saved_model
